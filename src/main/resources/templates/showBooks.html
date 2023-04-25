@@ -14,5 +14,12 @@
     <p>Tytuł: <td th:text="${book.getTitle()}"></td><br></p>
     <hr>
 </tr>
+
+<form th:action="@{/addBook}" th:object="${newBook}" method="post">
+    <p>Podaj tytuł: <input type="text" th:field="*{title}"></p>
+    <p>Podaj autora: <input type="text" th:field="*{author}"></p>
+    <p><input type="submit" value="Dodaj do listy"></p>
+
+</form>
 </body>
 </html>
