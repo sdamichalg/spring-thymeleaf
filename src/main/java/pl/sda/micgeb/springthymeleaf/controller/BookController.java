@@ -5,22 +5,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.sda.micgeb.springthymeleaf.model.Book;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class BookController {
 
-    @GetMapping("/book")
-    public String book(Model model) {
+    private final List<Book> books;
+
+    public BookController() {
         Book book1 = new Book("Harry Potter i Kamień Filozoficzny", "J. K. Rowling");
         Book book2 = new Book("Pan Tadeusz", "Adam Mickiewicz");
         Book book3 = new Book("Ziemia obiecana", "Władysław Reymont");
+        this.books = new ArrayList<>();
 
-        List<Book> books = Arrays.asList(book1, book2, book3);
+        books.add(book1);
+        books.add(book2);
+        books.add(book3);
+    }
 
+    @GetMapping("/book")
+    public String book(Model model) {
         model.addAttribute("books", books);
-        model.addAttribute("myName", "Michał");
 
         return "books";
     }

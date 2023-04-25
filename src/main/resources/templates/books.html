@@ -10,8 +10,8 @@
 <h1>Nasze ksiązki</h1>
 
 <tr th:each="book: ${books}">
-    <td th:text="${book.getAuthor()}"></td><br>
-    <td th:text="${book.getTitle()}"></td><br>
+    <p>Autor: <td th:text="${book.getAuthor()}"></td><br></p>
+    <p>Tytuł: <td th:text="${book.getTitle()}"></td><br></p>
     <hr>
 </tr>
 </body>
