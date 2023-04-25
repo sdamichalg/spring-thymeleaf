@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.sda.micgeb.springthymeleaf.model.Book;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class BookController {
     }
 
     @PostMapping("/addBook")
-    public String addBook(@ModelAttribute Book book) {
+    public String addBook(@Valid @ModelAttribute Book book) {
         System.out.println(book);
         books.add(book);
 
